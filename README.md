@@ -22,7 +22,7 @@ For LeWa OSv5 ROM;
 - download native zip (e.g. LeWa_LENOVO_S920_JB2_ROM_13.10.11_nxtn91.zip);
 - unpack native ROM;
 - unpack release zip to other folder;
-- copy all files except META-INF from release to native folder;
+- copy all files (except META-INF folder) from release to native folder;
 - run prepare_lewa.sh;
 - pack modified native folder content into zip file;
 - use https://github.com/BurgerZ/jBART for translation.
