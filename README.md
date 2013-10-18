@@ -22,7 +22,8 @@ For LeWa OSv5 ROM;
 - unpack native ROM;
 - unpack release zip to other folder;
 - copy all files except META-INF from release to native folder;
-- pack native folder contents into zip file;
+- run prepare_lewa.sh;
+- pack modified native folder content into zip file;
 - use https://github.com/BurgerZ/jBART for translation.
 
 Enjoy.
