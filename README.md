@@ -12,7 +12,7 @@ For MIUIv5 rom:
 - put release zip to SD card;
 - reboot into recovery;
 - flash native (translated) zip;
-- flash release zip over native zip.
+- flash release zip on top of native zip.
 
 Enjoy.
 
