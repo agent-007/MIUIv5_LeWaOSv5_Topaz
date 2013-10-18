@@ -1,0 +1,35 @@
+--- META-INF/com/google/android/updater-script.orig	2008-02-29 10:33:46.000000000 +0300
++++ META-INF/com/google/android/updater-script	2013-10-15 21:15:27.627718070 +0400
+@@ -1,9 +1,8 @@
+-assert(getprop("ro.product.device") == "s920_jb2" || getprop("ro.build.product") == "s920_jb2" || 
+-       getprop("ro.product.device") == "S920" || getprop("ro.build.product") == "S920" || 
+-       getprop("ro.product.device") == "s920" || getprop("ro.build.product") == "s920");
+ show_progress(0.500000, 0);
+-format("ext4", "EMMC", "/dev/block/mmcblk0p3", "0", "/system");
+-mount("ext4", "EMMC", "/dev/block/mmcblk0p3", "/system");
++ui_print("Formatting system...");
++unmount("/system");
++format("ext4", "EMMC", "/dev/block/mmcblk0p5", "0", "/system");
++mount("ext4", "EMMC", "/dev/block/mmcblk0p5", "/system");
+ package_extract_dir("system", "/system");
+ symlink("Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
+ symlink("Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
+@@ -111,6 +110,7 @@ set_perm(0, 0, 06755, "/system/bin/su0")
+ set_perm(1002, 1002, 0440, "/system/etc/dbus.conf");
+ set_perm(1014, 2000, 0550, "/system/etc/dhcpcd/dhcpcd-run-hooks");
+ set_perm(0, 2000, 0550, "/system/etc/init.goldfish.sh");
++set_perm_recursive(0, 2000, 0755, 0755, "/system/etc/init.d");
+ set_perm_recursive(0, 0, 0755, 0555, "/system/etc/ppp");
+ set_perm(1014, 2000, 0550, "/system/etc/wide-dhcpv6/dhcp6c.script");
+ set_perm(0, 2000, 0755, "/system/vendor");
+@@ -135,8 +135,7 @@ set_perm_recursive(0, 2000, 0755, 0755,
+ set_perm(0, 0, 06755, "/system/xbin/su");
+ show_progress(0.200000, 0);
+ show_progress(0.200000, 10);
+-assert(package_extract_file("boot.img", "/tmp/boot.img"),
+-       write_raw_image("/tmp/boot.img", "bootimg"),
+-       delete("/tmp/boot.img"));
++ui_print("Update Boot image...");
++package_extract_file("boot.img", "/dev/bootimg");
+ show_progress(0.100000, 0);
+ unmount("/system");
