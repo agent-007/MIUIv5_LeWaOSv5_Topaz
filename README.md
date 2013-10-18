@@ -5,6 +5,7 @@ Files and tools for ROM adaptation. Native devices: Xiaomi Hongmi (V6, Red Rice)
 
 For MIUIv5 rom: 
 - download release zip (e.g. 3.10.11) from this repo;
+- (opt) sign release zip;
 - download native zip (e.g. miuiandroid_V6_jb-3.10.11.zip);
 - (opt) use https://github.com/KDGDev/translation-tool for native ROM translation;
 - (opt) use https://github.com/agent-007/miui-v5-russian-translation-for-miuiandroid as translation source;
