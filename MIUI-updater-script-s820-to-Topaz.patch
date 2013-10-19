@@ -1,0 +1,59 @@
+--- META-INF/com/google/android/updater-script.orig	Fri Feb 29 03:33:46 2008
++++ META-INF/com/google/android/updater-script	Sat Oct 19 16:11:55 2013
+@@ -1,5 +1,3 @@
+-assert(getprop("ro.product.device") == "S820" ||
+-       getprop("ro.build.product") == "S820");
+ show_progress(0.500000, 0);
+ ui_print("Formatting system...");
+ unmount("/system");
+@@ -31,6 +29,42 @@ symlink("/system/bin/toolbox", "/system/
+         "/system/bin/umount", "/system/bin/uptime", "/system/bin/vmstat",
+         "/system/bin/watchprops",
+         "/system/bin/wipe");
++symlink("/system/xbin/busybox", "/system/xbin/awk");
++symlink("/system/xbin/busybox", "/system/xbin/basename");
++symlink("/system/xbin/busybox", "/system/xbin/bunzip2");
++symlink("/system/xbin/busybox", "/system/xbin/bzcat");
++symlink("/system/xbin/busybox", "/system/xbin/bzip2");
++symlink("/system/xbin/busybox", "/system/xbin/chroot");
++symlink("/system/xbin/busybox", "/system/xbin/cpio");
++symlink("/system/xbin/busybox", "/system/xbin/diff");
++symlink("/system/xbin/busybox", "/system/xbin/dirname");
++symlink("/system/xbin/busybox", "/system/xbin/env");
++symlink("/system/xbin/busybox", "/system/xbin/egrep");
++symlink("/system/xbin/busybox", "/system/xbin/find");
++symlink("/system/xbin/busybox", "/system/xbin/gunzip");
++symlink("/system/xbin/busybox", "/system/xbin/gzip");
++symlink("/system/xbin/busybox", "/system/xbin/less");
++symlink("/system/xbin/busybox", "/system/xbin/mkfs.ext2");
++symlink("/system/xbin/busybox", "/system/xbin/mkfs.vfat");
++symlink("/system/xbin/busybox", "/system/xbin/patch");
++symlink("/system/xbin/busybox", "/system/xbin/readlink");
++symlink("/system/xbin/busybox", "/system/xbin/realpath");
++symlink("/system/xbin/busybox", "/system/xbin/run-parts");
++symlink("/system/xbin/busybox", "/system/xbin/sed");
++symlink("/system/xbin/busybox", "/system/xbin/seq");
++symlink("/system/xbin/busybox", "/system/xbin/sha1sum");
++symlink("/system/xbin/busybox", "/system/xbin/sha256sum");
++symlink("/system/xbin/busybox", "/system/xbin/sha512sum");
++symlink("/system/xbin/busybox", "/system/xbin/sort");
++symlink("/system/xbin/busybox", "/system/xbin/tee");
++symlink("/system/xbin/busybox", "/system/xbin/uniq");
++symlink("/system/xbin/busybox", "/system/xbin/unzip");
++symlink("/system/xbin/busybox", "/system/xbin/vi");
++symlink("/system/xbin/busybox", "/system/xbin/wc");
++symlink("/system/xbin/busybox", "/system/xbin/which");
++symlink("/system/xbin/busybox", "/system/xbin/whoami");
++symlink("/system/xbin/busybox", "/system/xbin/xargs");
++symlink("/system/xbin/busybox", "/system/xbin/zcat");
+ symlink("/system/fonts/Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
+ symlink("/system/fonts/Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
+ symlink("/system/lib/modules/wlan_mt6628.ko", "/system/lib/modules/wlan.ko");
+@@ -46,6 +80,7 @@ set_perm(1014, 2000, 0550, "/system/etc/
+ set_perm(0, 2000, 0550, "/system/etc/init.goldfish.sh");
+ set_perm_recursive(0, 0, 0755, 0555, "/system/etc/ppp");
+ set_perm_recursive(1001, 1000, 0770, 0644, "/system/etc/ril");
++set_perm_recursive(0, 2000, 0755, 0755, "/system/etc/init.d");
+ set_perm(0, 0, 0444, "/system/etc/ril/oper.lis");
+ set_perm(0, 1000, 0750, "/system/etc/throttle.sh");
+ set_perm(1014, 2000, 0550, "/system/etc/wide-dhcpv6/dhcp6c.script");
